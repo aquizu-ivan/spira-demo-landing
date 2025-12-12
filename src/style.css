@@ -468,6 +468,53 @@ section[id] {
   color: var(--text);
 }
 
+.eventsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.eventsCard {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.9rem 1.1rem;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+}
+
+.eventsCard h3 {
+  margin-top: 0;
+}
+
+.eventsRules {
+  grid-column: span 2;
+  background: linear-gradient(180deg, rgba(200, 152, 72, 0.08), rgba(0, 0, 0, 0.05));
+  border: 1px solid var(--accent-gold-soft);
+  border-radius: var(--radius);
+  padding: 0.95rem 1.15rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
+}
+
+.eventsRules h3 {
+  margin-top: 0;
+}
+
+.eventsRead {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+}
+
+.eventsRead h3 {
+  margin-top: 0;
+}
+
+.eventsRead ul {
+  margin: 0.35rem 0 0;
+}
+
 footer {
   border-top: 1px solid var(--line);
   display: flex;
