@@ -319,6 +319,64 @@ section[id] {
   letter-spacing: 0.02em;
 }
 
+.comparativa-intro {
+  margin-top: 0.35rem;
+  color: var(--muted);
+}
+
+.comparativa-wrapper {
+  margin-top: 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-2);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+}
+
+.comparativa {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+.comparativa caption {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  color: var(--muted);
+  border-bottom: 1px solid var(--line);
+}
+
+.comparativa th,
+.comparativa td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.comparativa thead th {
+  font-weight: 700;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.comparativa tbody th {
+  width: 28%;
+  color: var(--accent-gold);
+  font-weight: 700;
+  min-width: 120px;
+  white-space: nowrap;
+}
+
+.comparativa tbody tr:last-child th,
+.comparativa tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.comparativa-wrapper {
+  overflow-x: auto;
+}
+
 .sub-bloque {
   margin-top: 0.85rem;
   padding-top: 0.75rem;
