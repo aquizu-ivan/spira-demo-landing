@@ -111,10 +111,20 @@ nav ul {
 nav a {
   padding: 0.4rem 0.25rem;
   color: var(--muted);
+  transition: color 160ms ease, box-shadow 160ms ease, text-decoration-color 160ms ease;
 }
 
 nav a:hover {
   color: var(--text);
+}
+
+nav a:focus-visible {
+  outline: none;
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  box-shadow: 0 0 0 3px var(--accent-gold-soft);
+  border-radius: 6px;
 }
 
 .cta-header {
@@ -122,8 +132,11 @@ nav a:hover {
 }
 
 .cta,
-.cta-secondary {
-  display: inline-block;
+.cta-secondary,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.75rem 1.2rem;
   border-radius: 999px;
   font-weight: 600;
@@ -149,9 +162,35 @@ nav a:hover {
   background: transparent;
 }
 
+.btn {
+  border: 1px solid var(--accent-gold-soft);
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.btn--ghost:not(:disabled):not([aria-disabled='true']):hover {
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+.btn:disabled,
+.btn[aria-disabled='true'] {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
 .cta-secondary:hover {
   border-color: var(--accent-gold);
   color: var(--accent-gold);
+}
+
+:is(.cta, .cta-secondary, .btn):focus-visible {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 4px var(--accent-gold-soft);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 main {
@@ -362,6 +401,7 @@ section[id] {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
+  overflow-x: auto;
   background: var(--bg-2);
   box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
 }
@@ -405,10 +445,6 @@ section[id] {
 .comparativa tbody tr:last-child th,
 .comparativa tbody tr:last-child td {
   border-bottom: none;
-}
-
-.comparativa-wrapper {
-  overflow-x: auto;
 }
 
 .sub-bloque {
@@ -572,6 +608,7 @@ footer {
 
 .footerReturn:hover,
 .footerReturn:focus-visible {
+  outline: none;
   border-color: var(--accent-gold);
   box-shadow: 0 0 0 4px var(--accent-gold-soft);
   text-decoration: underline;
@@ -631,7 +668,8 @@ footer {
   }
 
   .cta,
-  .cta-secondary {
+  .cta-secondary,
+  .btn {
     width: auto;
   }
 }
