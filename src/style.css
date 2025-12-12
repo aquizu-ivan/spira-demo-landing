@@ -551,6 +551,33 @@ footer {
   color: var(--muted);
 }
 
+.footerReturn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent-gold-soft);
+  background: rgba(11, 16, 26, 0.55);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.footerReturn__sigil {
+  color: var(--accent-gold);
+  opacity: 0.9;
+  letter-spacing: 0.08em;
+  font-size: 0.95em;
+}
+
+.footerReturn:hover,
+.footerReturn:focus-visible {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 4px var(--accent-gold-soft);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .firma {
   color: var(--text);
   font-weight: 600;
