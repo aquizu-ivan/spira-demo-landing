@@ -86,7 +86,7 @@ footer {
 
 header {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   align-items: center;
   gap: 1rem;
   border-bottom: 1px solid var(--line);
@@ -125,10 +125,6 @@ nav a:focus-visible {
   text-underline-offset: 0.2em;
   box-shadow: 0 0 0 3px var(--accent-gold-soft);
   border-radius: 6px;
-}
-
-.cta-header {
-  flex-shrink: 0;
 }
 
 .cta,
@@ -898,10 +894,6 @@ footer {
     justify-content: flex-start;
     flex-wrap: wrap;
     gap: 0.65rem 1rem;
-  }
-
-  .cta-header {
-    justify-self: start;
   }
 
   main {
