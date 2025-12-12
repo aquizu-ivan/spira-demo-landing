@@ -250,35 +250,68 @@
       </section>
       <section id="arquitectura">
         <h2>Arquitectura técnica</h2>
-        <p>La obra vive en un único pulso. No hay capas con vida paralela. Todo lo que aparece, nace del mismo latido.</p>
-        <div class="sub-bloque">
-          <h3>Un solo pulso (rAF)</h3>
-          <p>Un loop gobierna tiempo, estado y render: una sola respiración mueve todo.</p>
-        </div>
-        <div class="sub-bloque">
-          <h3>Tiempo y visibilidad</h3>
-          <p>deltaTime continuo, pero la obra no trabaja fuera de escena: gating por visibilidad.</p>
-        </div>
-        <div class="sub-bloque">
-          <h3>Semilla + ADN estable</h3>
-          <p>El patrón interno nace de una semilla y un ADN que no se reescribe frame a frame.</p>
-        </div>
-        <div class="sub-bloque">
-          <h3>Azar contenido</h3>
-          <p>Variación dentro de límites definidos: la identidad es reconocible.</p>
-        </div>
-        <div class="sub-bloque">
-          <h3>Clamps + envelopes</h3>
-          <p>Cambios suaves, sin saltos: ataque, decay y restauración amortiguados.</p>
-        </div>
-        <div class="sub-bloque">
-          <h3>Contacto</h3>
-          <p>El gesto del Guardián modula, no interrumpe: influencia sin romper el pulso.</p>
-        </div>
-        <div class="sub-bloque pipeline">
-          <h3>Pipeline</h3>
-          <pre><code>Pulso → Tiempo → Estado de ciclo → Expresión (órganos)
+        <p>Manual curatorial técnico para leer la arquitectura viva sin exponer secretos: describe el modelo, las garantías y los límites.</p>
+        <p>No revela fórmulas, constantes ni semillas: solo la forma en que la obra se comporta ante el público.</p>
+        <div class="techManual">
+          <details class="techBlock">
+            <summary>Modelo de ejecución (un solo pulso)</summary>
+            <p><strong>Qué es:</strong> un único loop gobierna tiempo, estado y expresión; no hay capas paralelas.</p>
+            <p><strong>Qué garantiza:</strong> sincronía absoluta entre órganos y tejido; coherencia de ciclo a ciclo.</p>
+            <p><strong>Qué NO expone:</strong> parámetros internos del loop ni prioridades de scheduling.</p>
+          </details>
+          <details class="techBlock">
+            <summary>Tiempo y visibilidad</summary>
+            <p><strong>Qué es:</strong> deltaTime continuo sujeto a gating de visibilidad; no se trabaja fuera de escena.</p>
+            <p><strong>Qué garantiza:</strong> ritmo estable, consumo contenido y expresión solo cuando la obra es visible.</p>
+            <p><strong>Qué NO expone:</strong> umbrales exactos de visibilidad ni estrategias de pausa.</p>
+          </details>
+          <details class="techBlock">
+            <summary>Determinismo y variación contenida</summary>
+            <p><strong>Qué es:</strong> identidad fija por ciclo con variaciones acotadas; el ADN no se reescribe frame a frame.</p>
+            <p><strong>Qué garantiza:</strong> reconocimiento de especie e individuo; microdesvíos sin perder firma.</p>
+            <p><strong>Qué NO expone:</strong> semillas, constantes de ruido ni rangos numéricos.</p>
+          </details>
+          <details class="techBlock">
+            <summary>Microeventos y envelopes</summary>
+            <p><strong>Qué es:</strong> eventos sutiles gobernados por envelopes de ataque/decay; no hay saltos bruscos.</p>
+            <p><strong>Qué garantiza:</strong> transiciones suaves, energía amortiguada y continuidad perceptual.</p>
+            <p><strong>Qué NO expone:</strong> curvas exactas, duraciones o gatillos internos.</p>
+          </details>
+          <details class="techBlock">
+            <summary>Contacto del Guardián</summary>
+            <p><strong>Qué es:</strong> influencia del usuario filtrada y modulada; nunca bloquea el pulso base.</p>
+            <p><strong>Qué garantiza:</strong> respuesta visible sin romper ciclo ni memoria mínima.</p>
+            <p><strong>Qué NO expone:</strong> mappings completos ni límites de ingreso de energía.</p>
+          </details>
+          <details class="techBlock">
+            <summary>Pipeline (lectura de sistema)</summary>
+            <p><strong>Qué es:</strong> recorrido del pulso hasta la firma visible.</p>
+            <pre class="techPipeline"><code>Pulso → Tiempo → Estado de ciclo → Expresión
 → Tejido / Firma → Render</code></pre>
+            <div class="techGloss">
+              <p><strong>Glosario mínimo:</strong></p>
+              <ul>
+                <li><code>rAF</code>: reloj único de respiración.</li>
+                <li><code>deltaTime</code>: intervalo usado para escalar cambios.</li>
+                <li><code>gating</code>: silenciar cuando no hay visibilidad.</li>
+                <li><code>clamp</code>: límites para evitar desbordes.</li>
+                <li><code>envelope</code>: ataque/decay que suaviza gestos.</li>
+                <li><code>ADN estable</code>: identidad fija que no se reescribe.</li>
+              </ul>
+            </div>
+          </details>
+          <details class="techBlock">
+            <summary>Performance de exhibición</summary>
+            <p><strong>Qué es:</strong> presupuesto de render ajustado a la pieza, sin tracking ni dependencias externas.</p>
+            <p><strong>Qué garantiza:</strong> fluidez en hardware de exhibición, carga liviana y sin assets pesados.</p>
+            <p><strong>Qué NO expone:</strong> perfiles exactos de GPU/CPU ni métricas internas.</p>
+          </details>
+          <details class="techBlock">
+            <summary>QA de exhibición (rutas + assets)</summary>
+            <p><strong>Qué es:</strong> validación de rutas relativas, base Vite y assets empaquetados para Pages.</p>
+            <p><strong>Qué garantiza:</strong> anclas navegables (#arquitectura, #ciclo, #fisiologia) y sin rutas absolutas.</p>
+            <p><strong>Qué NO expone:</strong> claves, entornos ni configuraciones privadas.</p>
+          </details>
         </div>
       </section>
       <section id="eventos" class="section section--alt">
@@ -327,15 +360,49 @@
       </section>
       <section id="ficha" class="section">
         <h2>Ficha técnica</h2>
-        <ul>
-          <li>Stack: Vite + JS vanilla + Canvas 2D (exhibición directa, sin backend).</li>
-          <li>Ejecución: un solo rAF, sin timers agresivos; respeta prefers-reduced-motion.</li>
-          <li>Vida (demo): 20 minutos = ciclo energético completo por sesión; la demo nace de nuevo al reabrir.</li>
-          <li>Memoria (demo): memoria mínima en sesión; no persiste edad entre visitas.</li>
-          <li>Reglas: Camino A (vida mientras se habita), transición continua, nada extra.</li>
-          <li>Compatibilidad: navegadores modernos; sin tracking; carga liviana.</li>
-          <li>Accesibilidad: foco visible, skip-link, navegación por anclas.</li>
-        </ul>
+        <p class="specNote">Datos de exhibición: suficiente para leer la fisiología sin exponer fórmulas internas.</p>
+        <dl class="specGrid">
+          <div class="specItem">
+            <dt>Stack</dt>
+            <dd>Vite + JS vanilla + Canvas 2D; exhibición directa, sin backend.</dd>
+          </div>
+          <div class="specItem">
+            <dt>Ejecución</dt>
+            <dd>Un solo rAF; sin timers agresivos; respeta prefers-reduced-motion.</dd>
+          </div>
+          <div class="specItem">
+            <dt>Vida (demo)</dt>
+            <dd>20 minutos = ciclo energético completo por sesión; la demo renace al reabrir.</dd>
+          </div>
+          <div class="specItem">
+            <dt>Memoria (demo)</dt>
+            <dd>Memoria mínima en sesión; no persiste edad entre visitas.</dd>
+          </div>
+          <div class="specItem">
+            <dt>Reglas</dt>
+            <dd>Camino A: vida mientras se habita; transición continua; nada extra.</dd>
+          </div>
+          <div class="specItem">
+            <dt>Compatibilidad</dt>
+            <dd>Navegadores modernos; sin tracking; carga liviana.</dd>
+          </div>
+          <div class="specItem">
+            <dt>Accesibilidad</dt>
+            <dd>Foco visible, skip-link, navegación por anclas.</dd>
+          </div>
+          <div class="specItem">
+            <dt>Exhibición/Deploy</dt>
+            <dd>GitHub Pages + Vite base en subpath (workflow Pages).</dd>
+          </div>
+          <div class="specItem">
+            <dt>Privacidad</dt>
+            <dd>Sin tracking, sin cookies, sin requests externas.</dd>
+          </div>
+          <div class="specItem">
+            <dt>Performance</dt>
+            <dd>Un solo rAF; trabajo mínimo por frame; sin loops paralelos.</dd>
+          </div>
+        </dl>
       </section>
       <section id="autor">
         <h2>Autoría y código</h2>
