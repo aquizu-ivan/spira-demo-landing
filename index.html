@@ -196,12 +196,36 @@
       </section>
       <section id="arquitectura">
         <h2>Arquitectura técnica</h2>
-        <ul>
-          <li>Un solo pulso de render (requestAnimationFrame) para toda la obra.</li>
-          <li>Tiempo continuo con deltaTime y control por visibilidad: no se procesa fuera de escena.</li>
-          <li>Clamps y envelopes suaves para no romper la continuidad perceptiva.</li>
-          <li>Estados del ciclo conectados sin saltos ni cortes abruptos.</li>
-        </ul>
+        <p>La obra vive en un único pulso. No hay capas con vida paralela. Todo lo que aparece, nace del mismo latido.</p>
+        <div class="sub-bloque">
+          <h3>Un solo pulso (rAF)</h3>
+          <p>Un loop gobierna tiempo, estado y render: una sola respiración mueve todo.</p>
+        </div>
+        <div class="sub-bloque">
+          <h3>Tiempo y visibilidad</h3>
+          <p>deltaTime continuo, pero la obra no trabaja fuera de escena: gating por visibilidad.</p>
+        </div>
+        <div class="sub-bloque">
+          <h3>Semilla + ADN estable</h3>
+          <p>El patrón interno nace de una semilla y un ADN que no se reescribe frame a frame.</p>
+        </div>
+        <div class="sub-bloque">
+          <h3>Azar contenido</h3>
+          <p>Variación dentro de límites definidos: la identidad es reconocible.</p>
+        </div>
+        <div class="sub-bloque">
+          <h3>Clamps + envelopes</h3>
+          <p>Cambios suaves, sin saltos: ataque, decay y restauración amortiguados.</p>
+        </div>
+        <div class="sub-bloque">
+          <h3>Contacto</h3>
+          <p>El gesto del Guardián modula, no interrumpe: influencia sin romper el pulso.</p>
+        </div>
+        <div class="sub-bloque pipeline">
+          <h3>Pipeline</h3>
+          <pre><code>Pulso → Tiempo → Estado de ciclo → Expresión (órganos)
+→ Tejido / Firma → Render</code></pre>
+        </div>
       </section>
       <section id="eventos">
         <h2>Microeventos y macroeventos</h2>
@@ -212,9 +236,13 @@
       <section id="ficha">
         <h2>Ficha técnica</h2>
         <ul>
-          <li>Stack: Vite + JS vanilla + Canvas 2D; simple y robusto para exhibición sin backend.</li>
-          <li>Duración: 20 minutos por ciclo (demo) mientras se habita la obra.</li>
-          <li>Reglas: Camino A, memoria mínima (edad + identidad) y continuidad mientras se contempla.</li>
+          <li>Stack: Vite + JS vanilla + Canvas 2D (exhibición directa, sin backend).</li>
+          <li>Ejecución: un solo rAF, sin timers agresivos; respeta prefers-reduced-motion.</li>
+          <li>Vida (demo): 20 minutos = ciclo energético completo por sesión; la demo nace de nuevo al reabrir.</li>
+          <li>Memoria (demo): memoria mínima en sesión; no persiste edad entre visitas.</li>
+          <li>Reglas: Camino A (vida mientras se habita), transición continua, nada extra.</li>
+          <li>Compatibilidad: navegadores modernos; sin tracking; carga liviana.</li>
+          <li>Accesibilidad: foco visible, skip-link, navegación por anclas.</li>
         </ul>
       </section>
       <section id="autor">
