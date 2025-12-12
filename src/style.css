@@ -172,7 +172,7 @@ nav a:focus-visible {
 
 .btn:disabled,
 .btn[aria-disabled='true'] {
-  opacity: 0.65;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 
@@ -415,10 +415,27 @@ section ul {
   font-weight: 700;
   cursor: pointer;
   outline: none;
+  position: relative;
+  padding-right: 1.4rem;
 }
 
 .techBlock summary::-webkit-details-marker {
   display: none;
+}
+
+.techBlock summary::after {
+  content: "＋";
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: var(--accent-gold);
+  font-weight: 600;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+
+.techBlock[open] summary::after {
+  content: "—";
+  opacity: 0.9;
 }
 
 .techBlock[open] {
@@ -952,4 +969,11 @@ section:target {
   section:target {
     transition: none;
   }
+}
+:is(.cta, .cta-secondary, .btn):focus-visible {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 4px var(--accent-gold-soft);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
